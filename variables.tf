@@ -12,3 +12,13 @@ variable "project_name" {
   type        = string
   description = "Name of the project"
 }
+
+variable "project_workspace_name" {
+  type        = string
+  description = "The name of the project workspace"
+}
+
+variable "terraform_version" {
+  type        = string
+  description = "The version of Terraform to use for this workspace"
+}
