@@ -31,8 +31,8 @@ No modules.
 | <a name="input_organization_email"></a> [organization\_email](#input\_organization\_email) | Email of the organization | `string` | n/a | yes |
 | <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name) | Name of the organization | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of the project | `string` | n/a | yes |
-| <a name="input_project_workspace_name"></a> [project\_workspace\_name](#input\_project\_workspace\_name) | The name of the project workspace | `string` | n/a | yes |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use for this workspace | `string` | n/a | yes |
+| <a name="input_workspaces"></a> [workspaces](#input\_workspaces) | The list of workspace names | `list(string)` | n/a | yes |
 
 ## Outputs
 

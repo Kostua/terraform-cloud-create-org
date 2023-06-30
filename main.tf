@@ -9,7 +9,8 @@ resource "tfe_project" "this" {
 }
 
 resource "tfe_workspace" "this" {
-  name              = var.project_workspace_name
+  for_each          = toset(var.workspaces)
+  name              = each.value
   organization      = tfe_organization.this.name
   project_id        = tfe_project.this.id
   terraform_version = var.terraform_version
