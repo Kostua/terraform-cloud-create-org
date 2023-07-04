@@ -22,3 +22,22 @@ variable "terraform_version" {
   type        = string
   description = "The version of Terraform to use for this workspace"
 }
+variable "auto_apply" {
+  type        = bool
+  description = "Whether to automatically apply changes when a Terraform plan is successful"
+}
+
+variable "aws_access_key" {
+  type        = string
+  description = "The AWS access key to use for authentication."
+}
+
+variable "aws_secret_key" {
+  type        = string
+  description = "The AWS secret key to use for authentication."
+}
+
+variable "aws_region" {
+  type        = string
+  description = "The AWS region to use for resources."
+}
