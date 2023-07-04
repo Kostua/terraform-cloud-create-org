@@ -22,8 +22,9 @@ resource "tfe_workspace" "this" {
 
 
 resource "tfe_variable_set" "this" {
-  name        = "Project Varset"
-  description = "Variable set applied to all workspaces in project"
+  name         = "Project Varset"
+  description  = "Variable set applied to all workspaces in project"
+  organization = tfe_organization.this.name
 }
 resource "tfe_variable" "aws_access_key" {
   key             = "AWS_ACCESS_KEY_ID"
