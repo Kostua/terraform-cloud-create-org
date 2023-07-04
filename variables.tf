@@ -30,11 +30,13 @@ variable "auto_apply" {
 variable "aws_access_key" {
   type        = string
   description = "The AWS access key to use for authentication."
+  default     = null
 }
 
 variable "aws_secret_key" {
   type        = string
   description = "The AWS secret key to use for authentication."
+  default     = null
 }
 
 variable "aws_region" {
