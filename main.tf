@@ -8,11 +8,51 @@ resource "tfe_project" "this" {
   name         = var.project_name
 }
 
+
 resource "tfe_workspace" "this" {
   for_each          = toset(var.workspaces)
   name              = each.value
   organization      = tfe_organization.this.name
   project_id        = tfe_project.this.id
+  auto_apply        = var.auto_apply
   terraform_version = var.terraform_version
   depends_on        = [tfe_project.this]
+}
+
+
+
+resource "tfe_variable_set" "this" {
+  name        = "Project Varset"
+  description = "Variable set applied to all workspaces in project"
+}
+resource "tfe_variable" "aws_access_key" {
+  key             = "AWS_ACCESS_KEY_ID"
+  value           = var.aws_access_key
+  category        = "env"
+  sensitive       = true
+  hcl             = false
+  variable_set_id = tfe_variable_set.this.id
+}
+
+resource "tfe_variable" "aws_secret_key" {
+  key             = "AWS_SECRET_ACCESS_KEY"
+  value           = var.aws_secret_key
+  category        = "env"
+  sensitive       = true
+  hcl             = false
+  variable_set_id = tfe_variable_set.this.id
+}
+
+resource "tfe_variable" "aws_region" {
+  key             = "AWS_REGION"
+  value           = var.aws_region
+  category        = "env"
+  sensitive       = false
+  hcl             = false
+  variable_set_id = tfe_variable_set.this.id
+}
+
+resource "tfe_project_variable_set" "this" {
+  project_id      = tfe_project.this.id
+  variable_set_id = tfe_variable_set.this.id
 }
