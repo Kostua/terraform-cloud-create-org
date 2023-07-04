@@ -27,7 +27,7 @@ resource "tfe_variable_set" "this" {
 }
 resource "tfe_variable" "aws_access_key" {
   key             = "AWS_ACCESS_KEY_ID"
-  value           = var.aws_access_key
+  value           = var.aws_access_key != null ? 1 : 0
   category        = "env"
   sensitive       = true
   hcl             = false
@@ -36,7 +36,7 @@ resource "tfe_variable" "aws_access_key" {
 
 resource "tfe_variable" "aws_secret_key" {
   key             = "AWS_SECRET_ACCESS_KEY"
-  value           = var.aws_secret_key
+  value           = var.aws_secret_key != null ? 1 : 0
   category        = "env"
   sensitive       = true
   hcl             = false
