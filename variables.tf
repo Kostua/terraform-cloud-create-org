@@ -8,6 +8,11 @@ variable "organization_email" {
   description = "Email of the organization"
 }
 
+variable "cost_estimation_enabled" {
+  type        = bool
+  description = "Whether cost estimation is enabled for this organization"
+}
+
 variable "project_name" {
   type        = string
   description = "Name of the project"
