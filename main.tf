@@ -1,6 +1,7 @@
 resource "tfe_organization" "this" {
-  name  = var.organization_name
-  email = var.organization_email
+  name                    = var.organization_name
+  email                   = var.organization_email
+  cost_estimation_enabled = var.cost_estimation_enabled
 }
 
 resource "tfe_project" "this" {
