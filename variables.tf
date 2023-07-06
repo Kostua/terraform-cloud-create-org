@@ -11,6 +11,7 @@ variable "organization_email" {
 variable "cost_estimation_enabled" {
   type        = bool
   description = "Whether cost estimation is enabled for this organization"
+  default     = null
 }
 
 variable "project_name" {

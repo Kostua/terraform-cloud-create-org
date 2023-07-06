@@ -1,7 +1,7 @@
 resource "tfe_organization" "this" {
   name                    = var.organization_name
   email                   = var.organization_email
-  cost_estimation_enabled = var.cost_estimation_enabled
+  cost_estimation_enabled = var.cost_estimation_enabled != null ? var.cost_estimation_enabled : false
 }
 
 resource "tfe_project" "this" {
