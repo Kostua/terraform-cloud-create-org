@@ -25,7 +25,13 @@ resource "tfe_workspace" "this" {
 resource "tfe_variable_set" "this" {
   name         = "Project Varset"
   description  = "Variable set applied to all workspaces in project"
+  global       = true
   organization = tfe_organization.this.name
+}
+
+resource "tfe_project_variable_set" "this" {
+  project_id      = tfe_project.this.id
+  variable_set_id = tfe_variable_set.this.id
 }
 resource "tfe_variable" "aws_access_key" {
   key             = "AWS_ACCESS_KEY_ID"
@@ -51,10 +57,5 @@ resource "tfe_variable" "aws_region" {
   category        = "env"
   sensitive       = false
   hcl             = false
-  variable_set_id = tfe_variable_set.this.id
-}
-
-resource "tfe_project_variable_set" "this" {
-  project_id      = tfe_project.this.id
   variable_set_id = tfe_variable_set.this.id
 }
