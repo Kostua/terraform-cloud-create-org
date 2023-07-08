@@ -29,10 +29,6 @@ resource "tfe_variable_set" "this" {
   organization = tfe_organization.this.name
 }
 
-resource "tfe_project_variable_set" "this" {
-  project_id      = tfe_project.this.id
-  variable_set_id = tfe_variable_set.this.id
-}
 resource "tfe_variable" "aws_access_key" {
   key             = "AWS_ACCESS_KEY_ID"
   value           = var.aws_access_key != null ? 1 : 0
