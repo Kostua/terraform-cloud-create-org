@@ -38,12 +38,12 @@ No modules.
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | The AWS region to use for resources. | `string` | n/a | yes |
 | <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | The AWS secret key to use for authentication. | `string` | `null` | no |
 | <a name="input_cost_estimation_enabled"></a> [cost\_estimation\_enabled](#input\_cost\_estimation\_enabled) | Whether cost estimation is enabled for this organization | `bool` | `null` | no |
-| <a name="input_global_remote_state"></a> [global\_remote\_state](#input\_global\_remote\_state) | Whether to use a global remote state for all workspaces in the project | `bool` | `null` | no |
 | <a name="input_organization_email"></a> [organization\_email](#input\_organization\_email) | Email of the organization | `string` | n/a | yes |
 | <a name="input_organization_name"></a> [organization\_name](#input\_organization\_name) | Name of the organization | `string` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of the project | `string` | n/a | yes |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use for this workspace | `string` | n/a | yes |
 | <a name="input_workspaces"></a> [workspaces](#input\_workspaces) | The list of workspace names | `list(string)` | n/a | yes |
+| <a name="input_workspaces_with_global_remote_state"></a> [workspaces\_with\_global\_remote\_state](#input\_workspaces\_with\_global\_remote\_state) | The list of workspace names where global remote state is enabled | `list(string)` | `null` | no |
 
 ## Outputs
 
