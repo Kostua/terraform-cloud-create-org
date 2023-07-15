@@ -50,8 +50,8 @@ variable "aws_region" {
   description = "The AWS region to use for resources."
 }
 
-variable "global_remote_state" {
-  type        = bool
-  description = "Whether to use a global remote state for all workspaces in the project"
+variable "workspaces_with_global_remote_state" {
+  type        = list(string)
+  description = "The list of workspace names where global remote state is enabled"
   default     = null
 }
