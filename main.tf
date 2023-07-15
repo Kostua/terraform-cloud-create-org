@@ -11,13 +11,14 @@ resource "tfe_project" "this" {
 
 
 resource "tfe_workspace" "this" {
-  for_each          = toset(var.workspaces)
-  name              = each.value
-  organization      = tfe_organization.this.name
-  project_id        = tfe_project.this.id
-  auto_apply        = var.auto_apply
-  terraform_version = var.terraform_version
-  depends_on        = [tfe_project.this]
+  for_each            = toset(var.workspaces)
+  name                = each.value
+  organization        = tfe_organization.this.name
+  project_id          = tfe_project.this.id
+  auto_apply          = var.auto_apply
+  global_remote_state = var.global_remote_state != null ? true : false
+  terraform_version   = var.terraform_version
+  depends_on          = [tfe_project.this]
 }
 
 
